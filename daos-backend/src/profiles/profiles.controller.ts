@@ -1,4 +1,7 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+import { AuthService } from 'src/auth/auth.service';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guards';
+import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 import { CreateProfileDTO } from './dtos/create-profile.dto';
 import { InstrumentDTO } from './dtos/instrument-profile.dto';
 import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto';
@@ -11,7 +14,23 @@ import { Profile } from './schemas/profile.schema';
 export class ProfilesController {
     // Dependency injection = imports data for use
     // Dependency injection - profiles service
-    constructor(private readonly profilesService: ProfilesService) {}
+    constructor(private readonly profilesService: ProfilesService, private authService: AuthService) {}
+
+    // Recives a login request from the frontend
+    // The endpoint is "guarded" by the LocalAuthGuard
+    @UseGuards(LocalAuthGuard)
+    @Post('auth/login')
+    async login(@Request() req) {
+      return this.authService.login(req.user);
+      // The request has to be a user request
+      // if profile request it becomes undefined
+    }
+  
+    @UseGuards(JwtAuthGuard)
+    @Get('protected')
+    getProfile(@Request() req) {
+      return req.user;
+    }
 
     // URL = /profiles
     @Get()

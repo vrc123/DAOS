@@ -14,6 +14,10 @@ export class ProfilesService {
     // Dependency injection - profile model
     constructor(@InjectModel(Profile.name) private readonly profileModel: Model<ProfileDocument>) {}
 
+    async findOne(email: string): Promise<Profile | undefined> {
+        return this.profileModel.findOne({ email: email });
+    }
+
     async findAll(): Promise<Profile[]> {
         return await this.profileModel.find({});
     }

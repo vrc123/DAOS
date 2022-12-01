@@ -27,7 +27,7 @@ export class Profile {
     lastName: string;
     
     @Prop()
-    userName: string;
+    email: string;
     
     @Prop()
     password: string;
