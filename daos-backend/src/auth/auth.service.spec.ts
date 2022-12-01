@@ -1,7 +1,7 @@
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UsersModule } from '../users/users.module';
+import { ProfilesModule } from 'src/profiles/profiles.module';
 import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
 import { JwtStrategy } from './strategies/jwt.strategy';
@@ -13,7 +13,7 @@ describe('AuthService', () => {
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [
-        UsersModule,
+        ProfilesModule,
         PassportModule,
         JwtModule.register({
           secret: jwtConstants.secret,
@@ -37,7 +37,7 @@ describe('validateUser', () => {
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [
-        UsersModule,
+        ProfilesModule,
         PassportModule,
         JwtModule.register({
           secret: jwtConstants.secret,
@@ -51,12 +51,12 @@ describe('validateUser', () => {
   });
 
   it('should return a user object when credentials are valid', async () => {
-    const res = await service.validateUser('maria', 'guess');
+    const res = await service.validateProfile('maria', 'guess');
     expect(res.userId).toEqual(3);
   });
 
   it('should return null when credentials are invalid', async () => {
-    const res = await service.validateUser('xxx', 'xxx');
+    const res = await service.validateProfile('xxx', 'xxx');
     expect(res).toBeNull();
   });
 });
@@ -67,7 +67,7 @@ describe('validateLogin', () => {
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [
-        UsersModule,
+        ProfilesModule,
         PassportModule,
         JwtModule.register({
           secret: jwtConstants.secret,
