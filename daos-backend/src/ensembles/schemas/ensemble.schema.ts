@@ -6,9 +6,27 @@ import * as mongoose from 'mongoose';
 export type EnsembleDocument = Ensemble & Document;
 
 @Schema()
-export class Ensemble {
+export class Posts {
+    @Prop()
+    title: string;
 
     @Prop()
+    description: string;
+
+    @Prop()
+    instrument: string;
+
+    @Prop()
+    minimumSkillLevel: string;
+
+    @Prop()
+    genre: [string]
+}
+
+@Schema()
+export class Ensemble {
+
+    @Prop({required: true})
     name: string;
 
     @Prop()
@@ -40,6 +58,9 @@ export class Ensemble {
     
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: Profile.name})
     admin: Profile;
+    
+    @Prop( [Posts] )
+    posts: Posts[]
 }
 
 export const EnsembleSchema = SchemaFactory.createForClass(Ensemble);

@@ -1,7 +1,7 @@
 import { IsAlpha, IsNumberString } from "class-validator";
 
 export class EditEnsembleDTO {
-    @IsAlpha()
+    
     readonly name: string;
     
     readonly description: string;

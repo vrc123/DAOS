@@ -1,8 +1,7 @@
-import { IsAlpha, IsNumberString } from "class-validator";
+import { IsAlpha, IsAlphanumeric, IsNumberString } from "class-validator";
 
 export class AddEnsembleDTO {
     
-    @IsAlpha()
     readonly name: string;
 
     readonly description: string;
