@@ -112,6 +112,7 @@ export default function FindMusician() {
             firstName: "Jens",
             lastName: "Jensen",
             city: "Hvidovre",
+            instruments: [],
         }
     ];
     

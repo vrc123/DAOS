@@ -14,6 +14,13 @@ export default function MusicianPreview({musician}) {
             <Link to="#">
                 <ButtonTag buttonType="small" buttonColor="white"  buttonText="Show profile" />
             </Link>
+            {musicians.instruments.map((instrument, index) => {
+                return (
+                    <div key={index}>
+                        
+                    </div>
+                );
+            })}
         </div>
     );
 }
