@@ -1,0 +1,49 @@
+.homeDefault {
+    display: flex;
+    align-items: center;
+    padding: 150px 100px;
+}
+
+.homeDefault div {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.homeDefault div h1 {
+    margin-bottom: 40px;
+}
+
+.homeDefault img {
+    width: 50%;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 428px) {   
+    .homeDefault {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 15px;
+    }
+
+    .homeDefault div {
+        width: 100%;
+        margin: 0;
+        order: 1;
+    }
+
+    .homeDefault div h1 {
+        width: 100%;
+        margin-top: 40px;
+        order: 1;
+    }
+    
+    .homeDefault img {
+        width: 100%;
+        margin: 0;
+        padding: 0 40px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

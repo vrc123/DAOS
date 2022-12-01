@@ -1,0 +1,29 @@
+.signUpDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.signUpDefault div {
+    width: 398px;
+}
+
+.signUpDefault div h1 {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 428px) {   
+    .signUpDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .signUpDefault div {
+        width: 100%;
+    }
+    
+    .signUpDefault div h1 {
+        margin-bottom: 30px;
+    }
+}

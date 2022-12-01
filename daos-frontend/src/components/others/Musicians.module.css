@@ -1,0 +1,21 @@
+.musiciansDefault {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 75px 100px;
+    background-color: #F9F9F9;
+}
+
+.musiciansDefault button {
+    width: 398px;
+}
+
+@media screen and (max-width: 428px) {
+    .musiciansDefault {
+        padding: 20px 15px;
+    }
+
+    .musiciansDefault button {
+        width: 100%;
+    }
+}

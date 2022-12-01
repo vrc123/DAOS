@@ -1,0 +1,41 @@
+.loginDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.loginDefault div {
+    width: 398px;
+}
+
+.loginDefault div h1 {
+    margin-bottom: 30px;
+}
+
+.loginDefault div a {
+    color: #777777;
+}
+
+.loginDefault div p {
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 428px) {   
+    .loginDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .loginDefault div {
+        width: 100%;
+    }
+    
+    .loginDefault div h1 {
+        margin-bottom: 30px;
+    }
+    
+    .loginDefault div p {
+        margin-top: 25px;
+    }
+}

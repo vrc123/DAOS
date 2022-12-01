@@ -1,0 +1,45 @@
+.footerNavigationDefault {
+    display: flex;
+    flex-direction: column;
+    margin-right: -30px;
+}
+
+.footerNavigationDefault nav {
+    margin: 30px 0;
+}
+
+.footerNavigationDefault label:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footerNavigationDefault nav a {
+    margin-right: 30px;
+}
+
+.footerNavigationDefault div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footerNavigationDefault div a {
+    margin-right: 12px;
+}
+
+@media screen and (max-width: 428px) {   
+    
+    .footerNavigationDefault {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+    
+    .footerNavigationDefault nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footerNavigationDefault nav a {
+        margin: 0 0 12px 0;
+    }
+}

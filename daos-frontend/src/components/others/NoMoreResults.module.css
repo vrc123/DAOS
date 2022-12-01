@@ -1,0 +1,38 @@
+.noMoreResultsDefault {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 50px;
+    padding: 49px 74px;
+    border-radius: 10px;
+    border: 1px solid #DDDDDD;
+    background-color: #F0F0F0;
+}
+
+.noMoreResultsDefault div {
+    width: 398px;
+    margin-left: 80px;
+}
+
+.noMoreResultsDefault h3 {
+    margin-bottom: 15px;
+}
+
+.noMoreResultsDefault button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 428px) {
+    .noMoreResultsDefault {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 50px;
+        padding: 20px 15px;
+    }
+    
+    .noMoreResultsDefault div {
+        width: 100%;
+        margin: 25px 0 0 0;
+    }
+}

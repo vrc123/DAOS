@@ -1,0 +1,21 @@
+.headerDefault {
+    width: 100%;
+    padding: 15px 40px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.headerDefault div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerDefault a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 428px) {   
+    .headerDefault {
+        padding: 15px 25px;
+    }
+}

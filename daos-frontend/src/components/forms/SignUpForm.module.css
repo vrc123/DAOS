@@ -1,0 +1,39 @@
+.signUpFormDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpFormDefault input {
+    margin-bottom: 15px;
+}
+
+.signUpFormDefault div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.signUpFormDefault div input {
+    margin: 0;
+}
+
+.signUpFormDefault div p {
+    margin-left: 15px;
+}
+
+.signUpFormDefault button {
+    margin-top: 15px;
+}
+
+.pCustom {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.21px;
+    color: #777777;
+}
+
+.pCustom a {
+    color: #777777;
+}
