@@ -7,7 +7,7 @@ export default function LoginForm() {
         <form className={styles.loginFormDefault}>
             <InputTagText inputText="E-mail" />
             <InputTagText inputText="Password" />
-            <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Login" />
+            <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Login"/>
         </form>
     );
 }
