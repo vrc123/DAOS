@@ -1,0 +1,43 @@
+.editProfileDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.editProfileDefault div {
+    width: 398px;
+}
+
+.editProfileDefault button {
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+
+.editProfileDefault div h1 {
+    margin-bottom: 15px;
+}
+
+.editProfileDefault div a {
+    color: #777777;
+}
+
+.editProfileDefault div p {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 428px) {   
+    .editProfileDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .editProfileDefault div {
+        width: 100%;
+    }
+    
+    .editProfileDefault div h1 {
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,38 @@
+.profileSettingsDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.profileSettingsDefault div {
+    width: 398px;
+}
+
+.profileSettingsDefault button {
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+.profileSettingsDefault div h1 {
+    margin-bottom: 15px;
+}
+
+.profileSettingsDefault div p {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 428px) {   
+    .profileSettingsDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .profileSettingsDefault div {
+        width: 100%;
+    }
+    
+    .profileSettingsDefault div h1 {
+        margin-bottom: 30px;
+    }
+}

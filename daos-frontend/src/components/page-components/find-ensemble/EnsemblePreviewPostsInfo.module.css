@@ -1,0 +1,7 @@
+.ensemblePreviewPostsInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 0 15px;
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #DDDDDD;
+}

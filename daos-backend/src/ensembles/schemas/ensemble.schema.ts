@@ -6,9 +6,27 @@ import * as mongoose from 'mongoose';
 export type EnsembleDocument = Ensemble & Document;
 
 @Schema()
-export class Ensemble {
+export class Posts {
+    @Prop({required: true})
+    title: string;
 
     @Prop()
+    description: string;
+
+    @Prop({required: true})
+    instrument: string;
+
+    @Prop({required: true})
+    minimumSkillLevel: string;
+
+    @Prop()
+    genre: string[]
+}
+
+@Schema()
+export class Ensemble {
+
+    @Prop({required: true})
     name: string;
 
     @Prop()
@@ -17,13 +35,13 @@ export class Ensemble {
     @Prop()
     website: string;
     
-    @Prop()
+    @Prop({required: true})
     zipCode: string;
     
-    @Prop()
+    @Prop({required: true})
     city: string;
     
-    @Prop()
+    @Prop({required: true})
     activeMusicians: string;
     
     @Prop()
@@ -36,10 +54,13 @@ export class Ensemble {
     projectBased: boolean;
     
     @Prop()
-    genre: [];
+    genre: string[];
     
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: Profile.name})
     admin: Profile;
+
+    @Prop([Posts])
+    posts: Posts[];
 }
 
 export const EnsembleSchema = SchemaFactory.createForClass(Ensemble);

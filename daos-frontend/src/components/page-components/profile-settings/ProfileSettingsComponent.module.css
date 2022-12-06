@@ -1,0 +1,13 @@
+.profileSettingsComponentDefault{
+    padding-top: 15px !important;
+}
+
+.profileSettingsComponentDefault div {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileSettingsComponentDefault button {
+    margin-top: 15px;
+    width: 100% !important;
+}

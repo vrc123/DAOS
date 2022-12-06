@@ -1,0 +1,9 @@
+.nameInputsDefault {
+    display: flex;
+    width: 100%;
+}
+
+.nameInputsDefault input {
+    width: calc(50% - 5px);
+    margin-bottom: 0;
+}

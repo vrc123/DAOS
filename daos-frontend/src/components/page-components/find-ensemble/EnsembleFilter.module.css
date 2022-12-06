@@ -1,0 +1,19 @@
+.ensembleFilterDefault {
+    padding: 75px 100px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.ensembleFilterDefault h1 {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 428px) {   
+    .ensembleFilterDefault {
+        padding: 20px 15px;
+        border-bottom: 1px solid #DDDDDD;
+    }
+
+    .ensembleFilterDefault h1 {
+        margin-bottom: 12px;
+    }
+}

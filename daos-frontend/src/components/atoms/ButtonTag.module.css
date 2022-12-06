@@ -44,6 +44,17 @@
     background-color: #F9F9F9;
 }
 
+.red {
+    color: #FFFFFF;
+    background-color: #BF1E2E;
+    border: 1px solid #BF1E2E;
+}
+
+.red:hover {
+    background-color: #B31D2C;
+    border: 1px solid #B31D2C;
+}
+
 .left {
     margin-right: 10px;
 }

@@ -1,4 +1,4 @@
-import { IsAlpha, IsNumberString } from "class-validator";
+import { IsAlpha, IsNumberString, MinLength } from "class-validator";
 
 export class AddEnsembleDTO {
     
@@ -15,6 +15,7 @@ export class AddEnsembleDTO {
     @IsAlpha()
     readonly city: string;
 
+    @MinLength(1)
     readonly activeMusicians: string;
 
     readonly practiceFrequency: string;

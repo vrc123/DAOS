@@ -9,3 +9,19 @@
     box-shadow: 0px 2px 4px #00000014;
     color: #777777;
 }
+
+.left {
+    margin-left: 5px;
+}
+
+.right {
+    margin-right: 5px;
+}
+
+.thin {
+    width: calc(30% - 5px);
+}
+
+.wide {
+    width: calc(70% - 5px);
+}

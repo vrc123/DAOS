@@ -1,0 +1,15 @@
+.musicianInstrumentInfoDefault {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.musicianInstrumentInfoDefault div {
+    display: flex;
+    align-items: center;
+}
+
+.musicianInstrumentInfoDefault label {
+    margin-bottom: 0 !important;
+}

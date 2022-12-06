@@ -1,0 +1,14 @@
+.ensembleCurrentPostInfoInstrumentDefault {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ensembleCurrentPostInfoInstrumentDefault div {
+    display: flex;
+    align-items: center;
+}
+
+.ensembleCurrentPostInfoInstrumentDefault div label {
+    margin: 0;
+}

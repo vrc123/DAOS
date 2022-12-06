@@ -1,0 +1,22 @@
+.musicianInstrumentsDefault {
+    display: flex;
+    flex-direction: column;
+    width: 398px;
+    height: fit-content !important;
+    margin-bottom: 25px;
+    padding: 15px 15px 0 15px;
+    border-radius: 10px;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0px 2px 4px #00000014;
+    background-color: #FFFFFF;
+}
+
+.musicianInstrumentsDefault label {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 428px) {   
+    .musicianInstrumentsDefault {
+        width: 100%;
+    }
+}

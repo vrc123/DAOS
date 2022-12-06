@@ -19,9 +19,9 @@ export class UpdateProfileDTO {
 
     readonly phone: string;
 
-    readonly status: string;
+    readonly status: boolean;
 
-    constructor(firstName: string, lastName: string, description: string, zipCode: string, city: string, email: string, phone: string, status: string) {
+    constructor(firstName: string, lastName: string, description: string, zipCode: string, city: string, email: string, phone: string, status: boolean) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;

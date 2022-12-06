@@ -6,10 +6,10 @@ export type ProfileDocument = Profile & Document;
 @Schema()
 export class Instrument {
 
-    @Prop()
+    @Prop({required: true})
     instrumentName: string;
     
-    @Prop()
+    @Prop({required: true})
     skillLevel: string;
     
     @Prop()
@@ -20,13 +20,13 @@ export class Instrument {
 @Schema()
 export class Profile {
     
-    @Prop()
+    @Prop({required: true})
     firstName: string;
     
-    @Prop()
+    @Prop({required: true})
     lastName: string;
     
-    @Prop()
+    @Prop({required: true})
     email: string;
     
     @Prop()
@@ -45,7 +45,7 @@ export class Profile {
     phone: string;
     
     @Prop()
-    status: string;
+    status: boolean;
     
     @Prop()
     conditions: boolean;

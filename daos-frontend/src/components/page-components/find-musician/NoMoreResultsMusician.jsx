@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import HTag from "../atoms/HTag";
-import PTag from "../atoms/PTag";
-import Illustration from "../../img/no-more-results.svg";
-import styles from "./NoMoreResults.module.css";
-import ButtonTag from "../atoms/ButtonTag";
+import HTag from "../../atoms/HTag";
+import PTag from "../../atoms/PTag";
+import Illustration from "../../../img/no-more-results.svg";
+import styles from "./NoMoreResultsMusician.module.css";
+import ButtonTag from "../../atoms/ButtonTag";
 
-export default function NoMoreResults() {
+export default function NoMoreResultsMusician() {
     return (
-        <div className={styles.noMoreResultsDefault}>
+        <div className={styles.noMoreResultsMusicianDefault}>
             <img src={Illustration} alt="Illustration" />
             <div>
                 <HTag hType="h3" hColor="blue" hText="Didn't find the right one to play with?" />

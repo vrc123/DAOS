@@ -1,0 +1,4 @@
+.musicianInstrumentGenreListDefault {
+    display: flex;
+    flex-wrap: wrap;
+}

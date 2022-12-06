@@ -1,0 +1,27 @@
+.editProfileFormDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.editProfileFormDefault label {
+    margin: 15px 0;
+}
+
+.editProfileFormDefault input {
+    margin-bottom: 15px;
+}
+
+.editProfileFormDefault button {
+    width: 100% !important;
+    margin-top: 15px;
+}
+
+.editProfileFormDefault div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.editProfileFormDefault div p {
+    margin-left: 15px;
+}

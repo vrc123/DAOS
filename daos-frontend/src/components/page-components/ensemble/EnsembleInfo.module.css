@@ -1,0 +1,29 @@
+.ensembleInfoDefault {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 75px 100px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.ensembleInfoDefault h1 {
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 428px) {   
+    .ensembleInfoDefault {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 15px;
+    }
+
+    .ensembleInfoDefault div {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .ensembleInfoDefault a {
+        width: 100% !important;
+    }
+}

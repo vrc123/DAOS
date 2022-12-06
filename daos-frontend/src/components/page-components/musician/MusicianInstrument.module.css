@@ -1,0 +1,10 @@
+.musicianInstrumentDefault {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.musicianInstrumentDefault label {
+    margin: 0 !important;
+}

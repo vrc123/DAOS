@@ -1,121 +1,12 @@
 import { useState } from "react";
-import MusicianFilter from "../components/others/MusicianFilter";
-import Musicians from "../components/others/Musicians";
+import MusicianFilter from "../components/page-components/find-musician/MusicianFilter";
+import Musicians from "../components/page-components/find-musician/Musicians";
+import useFetch from "../scripts/useFetch";
 
 export default function FindMusician() {
 
-    const musicians = [
-        {
-            _id: "1",
-            firstName: "Hans",
-            lastName: "Hansen",
-            city: "Copenhagen",
-        },
-        {
-            _id: "2",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "3",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "4",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "5",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "6",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "7",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "8",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "9",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "10",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "11",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "12",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "13",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "14",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "15",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "16",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-        },
-        {
-            _id: "17",
-            firstName: "Hans",
-            lastName: "Hans",
-            city: "Copenhagen",
-        },
-        {
-            _id: "18",
-            firstName: "Jens",
-            lastName: "Jensen",
-            city: "Hvidovre",
-            instruments: [],
-        }
-    ];
-    
+    const { data: musicians, isLoading, error } = useFetch("http://127.0.0.1:3000/profiles");
+
     let visibleMusiciansStart = 0;
 
     if(screen.width < 428 ) {
@@ -132,8 +23,10 @@ export default function FindMusician() {
 
     return ( 
         <div className='find-musician'>
-            <MusicianFilter musicians={musicians} />
-            <Musicians musicians={musicians} visibleMusicians={visibleMusicians} showMoreMusicians={showMoreMusicians} />
+            {musicians && <MusicianFilter musicians={musicians} />}
+            {isLoading && <div>Loading...</div>}
+            {error && <div>{error}</div>}
+            {musicians && <Musicians musicians={musicians} visibleMusicians={visibleMusicians} showMoreMusicians={showMoreMusicians} />}
         </div>
     );
 }

@@ -1,0 +1,23 @@
+.profileChangeNewsletterSettingsFormDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileChangeNewsletterSettingsFormDefault input {
+    margin: 15px 0;
+}
+
+.profileChangeNewsletterSettingsFormDefault div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profileChangeNewsletterSettingsFormDefault div p {
+    margin: 15px 0 0 15px;
+}
+
+.profileChangeNewsletterSettingsFormDefault button {
+    width: 100% !important;
+    margin-top: 15px;
+}

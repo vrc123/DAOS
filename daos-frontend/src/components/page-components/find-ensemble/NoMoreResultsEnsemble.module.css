@@ -1,0 +1,39 @@
+.noMoreResultsEnsembleDefault {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 50px;
+    padding: 50px 75px;
+    border-radius: 10px;
+    border: 1px solid #DDDDDD;
+    background-color: #F0F0F0;
+    box-shadow: 0px 2px 4px #00000014;
+}
+
+.noMoreResultsEnsembleDefault div {
+    width: 398px;
+    margin-left: 80px;
+}
+
+.noMoreResultsEnsembleDefault h3 {
+    margin-bottom: 15px;
+}
+
+.noMoreResultsEnsembleDefault button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 428px) {
+    .noMoreResultsEnsembleDefault {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 50px;
+        padding: 20px 15px;
+    }
+    
+    .noMoreResultsEnsembleDefault div {
+        width: 100%;
+        margin: 25px 0 0 0;
+    }
+}

@@ -1,0 +1,7 @@
+@media screen and (max-width: 428px) {   
+    .musicianInfoContactButtonsDefault {
+        display: flex;
+        flex-direction: column;
+        margin: 0 !important;
+    }
+}
