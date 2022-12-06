@@ -7,7 +7,7 @@ import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto
 import { UpdatePasswordProfileDTO } from './dtos/update-password-profile.dto';
 import { UpdateProfileDTO } from './dtos/update-profile.dto';
 import { Profile, ProfileDocument } from './schemas/profile.schema';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt'; 
 
 @Injectable()
 export class ProfilesService {

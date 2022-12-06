@@ -17,7 +17,7 @@ export class AuthService {
       
     if (profile && validPassword === true) {
       console.log(" ValidateProfile - Auth Service - True",profile);
-    return profile;
+    return profile; 
 
         //TODO: Follow up on why this happens - and solve it by mongo Doc as Christian talked about
     // if this becomes an spread operator
