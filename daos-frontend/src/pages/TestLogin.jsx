@@ -1,89 +1,6 @@
-//import { useFetcher } from "react-router-dom";
-
-
-// const Create = () => {
-//     return (
-//         <div className="create">
-//             <h2>Try loging in</h2>
-//         </div>
-//     );
-// }
-
-// export default Create;
-
-// import { useState, useEffect } from "react";
-// import ProfileList from "../Auth/ProfileList";
-
-// export default function TestLogin() {
-//     const [data, setData] = useState(null);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-
-//     useEffect(() => {
-//         fetch(`https://jsonplaceholder.typicode.com/posts`)
-//           .then((response) => {
-//             if (!response.ok) {
-//               throw new Error(
-//                 `This is an HTTP error: The status is ${response.status}`
-//               );
-//             }
-//             return response.json();
-//           })
-//           .then((actualData) => console.log(actualData))
-//           .catch((err) => {
-//             console.log(err.message);
-//           });
-//       }, []);
-
-//       return <div className="TestLogin">TestLogin</div>;
-// }
-
-
-   
-//     useEffect(() => {
-//      fetch(`http://localhost:3000/profiles`)
-//       //.then((response) => console.log(response.json));
-//       .then((response) => response.json())
-//       .then((actualData) => console.log(actualData));
-//     }, []);
-   
-//     return <div className="TestLogin">TestLogin</div>;
-//    }
-   
-
-// const TestLogin = () => {
-//     const {data: profiles, isPending, error } = useFetch ('http://localhost:3000/profiles');
-
-//     return (
-//         <div className="testLogin">
-//             {error && <div>{error}</div>}
-//             {isPending && <div>{Loading}</div>}
-//             {profiles && <ProfileList profiles={profiles} email="All Emails" />}
-//         </div>
-//     );
-// }
-
-// This works
-// const TestLogin = () => {
-//     const [profile, setProfiles] = useState ([
-//         {email: "TESTER", firstname: "DD", id: 1},
-//         {email: "TESTER", firstname: "WW", id: 2}
-//     ]);
-
-//     return (
-//         <div className="testLogin">
-//             <ProfileList profiles={profile}/>
-//         </div>
-//     );
-// }
-
-//export default TestLogin;
-
-
-// -----------------------
-
 import { useState } from "react";
 import { json, useFetcher } from "react-router-dom";
+import { AuthManager } from "../auth/AuthManager";
 
 const Create = () => {
     const [email, setEmail] = useState('');
@@ -94,16 +11,67 @@ const Create = () => {
         const profile = { email, password};
         console.log(profile);
 
-        fetch('http://localhost:3000/profiles/auth/login', {
-            method: 'POST',
-            headers: {"content-Type": "application/json"},
-            body: JSON.stringify(profile)
-        }).then((response) => response.json())
-        .then((actualData) => console.log(actualData))
+    fetch('http://localhost:3000/profiles/auth/login', {
+        method: 'POST',
+        headers: {"content-Type": "application/json"},
+        body: JSON.stringify(profile)
+    }).then((response) => response.json())
+    //.then((dataResponse) => console.log(dataResponse))
+    .then((dataResponse) => console.log(dataResponse.access_token))
+    //.then((dataResponse) => dataResponse.access_token())
+    //.then((dataResponse) => console.log(dataResponse))
+
+    //.then(localStorage.setItem(JSON.stringify(dataResponse.access_token)))
+
+
+        
+        
+        // .then((response) => response.json())
+        // //.then((token) => console.log(token))
+        // .then((response) => console.log(response.body))
+        // .then((dataResponse) => console.log(dataResponse))
+        // //.then((token) => console.log(token.type))
+        // //.then((token) => console.log(token.body))
+
+
+        //.then(updateToken(token))
+
+        //.then((AuthManager.updateToken(Token)))
+        //console.log(Authentication)
+        //console.log(Authentication)
+        // .then((Token.JSON.stringify))
+        // localStorage.setItem(Token)
+
+
+
+
         .catch((err) => {
             console.log(err.message);
         })
+
+
     }
+
+    const ff = "dd";
+
+    const updateToken = () => {
+        AuthManager.updateToken(ff);
+      };
+
+    // const updateToken = () => {
+    //     AuthManager.updateToken("dwadawd");
+    //   };
+
+//     fetch('http://localhost:3000/profiles/auth/login', {
+//         method: 'POST',
+//         headers: {"content-Type": "application/json"},
+//         body: JSON.stringify(profile)
+//     }).then((response) => response.json())
+//     .then((actualData) => console.log(actualData))
+//     .catch((err) => {
+//         console.log(err.message);
+//     })
+// }
 
     return (
         <div className="create">
@@ -125,9 +93,12 @@ const Create = () => {
                  onChange={(e) => setPassword(e.target.value)}>
                  </input>
                 <button>Login</button>
+                <button onClick={updateToken}>update token</button>
             </form>
-        </div>
+        </div>        
     );
 }
+
+// https://www.youtube.com/watch?v=EcRFYF4B3IQ&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=29
 
 export default Create;
