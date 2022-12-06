@@ -45,7 +45,7 @@ export class Profile {
     phone: string;
     
     @Prop()
-    status: string;
+    status: boolean;
     
     @Prop()
     conditions: boolean;

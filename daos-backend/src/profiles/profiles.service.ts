@@ -15,7 +15,7 @@ export class ProfilesService {
     constructor(@InjectModel(Profile.name) private readonly profileModel: Model<ProfileDocument>) {}
 
     async findAll(): Promise<Profile[]> {
-        return await this.profileModel.find({});
+        return await this.profileModel.find({ status: true });
     }
     
     async findSpecific(id: string): Promise<Profile> {

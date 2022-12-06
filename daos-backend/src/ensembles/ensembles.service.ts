@@ -13,7 +13,7 @@ export class EnsemblesService {
     constructor(@InjectModel(Ensemble.name) private readonly ensembleModel: Model<EnsembleDocument>) {}
 
     async findAll(): Promise<Ensemble[]> {
-        return await this.ensembleModel.find({}).populate('admin');
+        return await this.ensembleModel.find({posts : {$exists : true, $ne : [] }}).populate('admin');
     }
 
     async findSpecific(id: string): Promise<Ensemble> {
