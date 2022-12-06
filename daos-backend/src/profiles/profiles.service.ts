@@ -7,6 +7,7 @@ import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto
 import { UpdatePasswordProfileDTO } from './dtos/update-password-profile.dto';
 import { UpdateProfileDTO } from './dtos/update-profile.dto';
 import { Profile, ProfileDocument } from './schemas/profile.schema';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class ProfilesService {
@@ -28,6 +29,9 @@ export class ProfilesService {
 
     async create(profile: CreateProfileDTO): Promise<Profile> {
         const newProfile = new this.profileModel(profile);
+        //encrypting the incoming password from the user to a 10 character string
+        const hash = await bcrypt.hash(newProfile.password, 10);
+        newProfile.password = hash;
         return await newProfile.save();
     }
 

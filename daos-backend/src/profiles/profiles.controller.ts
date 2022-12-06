@@ -25,7 +25,8 @@ export class ProfilesController {
       // The request has to be a user request
       // if profile request it becomes undefined
     }
-  
+
+    // This is just a test route to see auth working  
     @UseGuards(JwtAuthGuard)
     @Get('protected')
     getProfile(@Request() req) {
@@ -47,8 +48,10 @@ export class ProfilesController {
     }
 
     @Post()
-    create(@Body() createProfile: CreateProfileDTO): Promise<Profile> {
-        return this.profilesService.create(createProfile);
+    async create(@Body() createProfile: CreateProfileDTO): Promise<any> {
+        // Creates a new profile object to the data, and returns a payload of profile
+        const profile = await this.profilesService.create(createProfile)
+        return this.authService.login(profile);
     }
 
     // URL = /profiles/:id

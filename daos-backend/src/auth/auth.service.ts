@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ProfilesService } from 'src/profiles/profiles.service';
 import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -12,8 +13,9 @@ export class AuthService {
   async validateProfile(email: string, password: string): Promise<any> {
     // Calling the findOne function from profileService - based on the Email form body
     const profile = await this.profilesService.findOne(email);
+    const validPassword = await bcrypt.compare(password, profile.password);
       
-    if (profile && profile.password === password) {
+    if (profile && validPassword === true) {
       console.log(" ValidateProfile - Auth Service - True",profile);
     return profile;
 
@@ -36,6 +38,7 @@ export class AuthService {
     return {
       // will sign the payload with the choosen key in jwt.Strategy
       access_token: this.jwtService.sign(payload),
+      profileId: profile._id.toString()
     };
   }
 }
