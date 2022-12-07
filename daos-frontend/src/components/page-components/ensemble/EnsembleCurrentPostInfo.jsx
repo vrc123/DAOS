@@ -9,7 +9,7 @@ export default function EnsembleCurrentPostInfo({post}) {
         <div className={styles.ensembleCurrentPostInfo}>
             <EnsembleCurrentPostInfoInstrument post={post} />
             <PTag pType="normal" pColor="grey" pText={post.title} />
-            <Link to="#">
+            <Link to={`/posts/${post._id}`}>
                 <ButtonTag buttonType="small" buttonColor="white"  buttonText="Show post" />
             </Link>
         </div>

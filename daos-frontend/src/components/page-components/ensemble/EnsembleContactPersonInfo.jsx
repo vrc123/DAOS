@@ -4,16 +4,16 @@ import HTag from "../../atoms/HTag";
 import LabelTag from "../../atoms/LabelTag";
 import styles from "./EnsembleContactPersonInfo.module.css";
 
-export default function EnsembleContactPersonInfo({musician}) {
+export default function EnsembleContactPersonInfo({admin}) {
 
     return ( 
         <div className={styles.ensembleContactPersonInfoDefault}>
             <div>
-                <HTag hType="h3" hColor="red" hText={`${musician.firstName} ${musician.lastName}`} />
-                <LabelTag labelType="small" labelColor="grey" labelText={musician.city} />
+                <HTag hType="h3" hColor="red" hText={`${admin.firstName} ${admin.lastName}`} />
+                <LabelTag labelType="small" labelColor="grey" labelText={admin.city} />
             </div>
-            <Link to="#">
-                <ButtonTag buttonType="small" buttonColor="white" buttonText="Show profile" />
+            <Link to={`/musicians/${admin._id}`}>
+                <ButtonTag buttonType="small" buttonColor="white" buttonText="Show more" />
             </Link>
         </div>
     );

@@ -47,7 +47,7 @@ export default function SignUpForm() {
         e.preventDefault();
 
         setIsLoading(true);
-        
+
         const profile = { 
             firstName,
             lastName, 

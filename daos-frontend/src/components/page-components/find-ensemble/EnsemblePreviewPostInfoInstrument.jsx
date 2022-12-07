@@ -9,7 +9,7 @@ export default function EnsemblePreviwPostInfoInstrument({post}) {
             <HTag hType="h3" hColor="blue" hText={post.instrument}/>
             <div>
                 <LabelTag labelType="small" labelColor="grey" labelText="Skill level"/>
-                <MusicianInstrumentSkillLevelComponent skillLevel={post.minimumSkillLevel} />
+                <MusicianInstrumentSkillLevelComponent skillLevel={post.minimumSkillLevel + "+"} />
             </div>
         </div>
     );

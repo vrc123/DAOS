@@ -1,19 +1,14 @@
-import { Link } from "react-router-dom";
-import ButtonTag from "../../atoms/ButtonTag";
-import LabelTag from "../../atoms/LabelTag";
-import PTag from "../../atoms/PTag";
-import MusicianInstrumentGenreList from "../../others/MusicianInstrumentGenreList";
 import EnsembleContactPerson from "./EnsembleContactPerson";
 import EnsembleCurrentPosts from "./EnsembleCurrentPosts";
 import EnsembleInfoMore from "./EnsembleInfoMore";
 import styles from "./EnsemblePropsList.module.css";
 
-export default function EnsemblePropsList({ensemble, theEnsemblePlays, musician}) {
+export default function EnsemblePropsList({ensemble, admin}) {
 
     return ( 
         <div className={styles.ensemblePropsListDefault}>
-            <EnsembleInfoMore ensemble={ensemble} theEnsemblePlays={theEnsemblePlays} />
-            <EnsembleContactPerson musician={musician} />
+            <EnsembleInfoMore ensemble={ensemble} />
+            <EnsembleContactPerson admin={admin} />
             <EnsembleCurrentPosts ensemble={ensemble} />
         </div>
     );

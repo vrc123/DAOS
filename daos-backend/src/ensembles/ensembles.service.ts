@@ -19,6 +19,10 @@ export class EnsemblesService {
     async findSpecific(id: string): Promise<Ensemble> {
         return await this.ensembleModel.findOne({ _id: id }).populate('admin');
     }
+
+    async findByAdmin (adminId: string): Promise<Ensemble[]> {
+        return await this.ensembleModel.find({ admin: adminId }).populate('admin');
+    }
     
     async create(ensemble: AddEnsembleDTO): Promise<Ensemble> {
         const newEnsemble = new this.ensembleModel(ensemble);

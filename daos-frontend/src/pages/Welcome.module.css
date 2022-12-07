@@ -1,54 +1,70 @@
-.homeDefault {
+.welcomeDefault {
     display: flex;
     align-items: center;
     padding: 150px 100px;
 }
 
-.homeDefault div {
+.welcomeDefault div {
     width: 50%;
     margin-right: 50px;
 }
 
-.homeDefault div h1 {
+.welcomeDefault div h1 {
+    margin-bottom: 15px;
+}
+
+.welcomeDefault div p {
     margin-bottom: 40px;
 }
 
-.homeDefault img {
+.welcomeDefault img {
     width: 50%;
     margin-left: 50px;
 }
 
-.homeDefault button {
+.welcomeDefault button {
     width: calc(50% - 10px);
 }
 
+.welcomeProfileButtonDefault {
+    width: 100% !important;
+}
+
+.welcomeProfileButtonDefault button {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
 @media screen and (max-width: 428px) {   
-    .homeDefault {
+    .welcomeDefault {
         flex-direction: column;
         align-items: center;
         padding: 60px 15px;
     }
 
-    .homeDefault div {
+    .welcomeDefault div {
         width: 100%;
         margin: 0;
         order: 1;
     }
 
-    .homeDefault div h1 {
+    .welcomeDefault div h1 {
         width: 100%;
         margin-top: 40px;
         order: 1;
     }
     
-    .homeDefault img {
+    .welcomeDefault img {
         width: 100%;
         margin: 0;
         padding: 0 40px;
     }
 
-    .homeDefault button {
+    .welcomeDefault button {
         width: 100%;
+    }
+    
+    .welcomeProfileButtonDefault button {
+        margin-bottom: 10px;
     }
 }

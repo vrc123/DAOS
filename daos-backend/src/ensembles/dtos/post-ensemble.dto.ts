@@ -7,10 +7,10 @@ export class PostEnsembleDTO {
 
     readonly description: string;
 
-    @IsAlpha()
+    @MinLength(1)
     readonly instrument: string;
 
-    @IsNumberString()
+    @MinLength(1)
     readonly minimumSkillLevel: string;
 
     readonly genre: string[];

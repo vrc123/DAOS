@@ -5,12 +5,12 @@ import LabelTag from "../../atoms/LabelTag";
 import styles from "./EnsembleContactPerson.module.css";
 import EnsembleContactPersonInfo from "./EnsembleContactPersonInfo";
 
-export default function EnsembleContactPerson({musician}) {
+export default function EnsembleContactPerson({admin}) {
 
     return ( 
         <div className={styles.ensembleContactPersonDefault}>
             <LabelTag labelType="normal" labelColor="blue" labelText="Contact person" />
-            <EnsembleContactPersonInfo musician={musician} />
+            <EnsembleContactPersonInfo admin={admin} />
         </div>
     );
 }

@@ -1,11 +1,11 @@
-import { IsAlpha, IsNumberString } from "class-validator";
+import { IsAlpha, IsNumberString, MinLength } from "class-validator";
 
 export class InstrumentDTO {
     
-    @IsAlpha()
+    @MinLength(1)
     readonly instrumentName: string;
     
-    @IsNumberString()
+    @MinLength(1)
     readonly skillLevel: string;
     
     readonly genre: string[];

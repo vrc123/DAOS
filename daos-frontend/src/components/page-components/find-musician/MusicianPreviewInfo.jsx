@@ -13,7 +13,7 @@ export default function MusicianPreviewInfo({musician}) {
                 <LabelTag labelType="small" labelColor="grey" labelText={musician.city} />
             </div>
             <Link to={`/musicians/${musician._id}`}>
-                <ButtonTag buttonType="small" buttonColor="white"  buttonText="Show profile" />
+                <ButtonTag buttonType="small" buttonColor="white"  buttonText="Show more" />
             </Link>
         </div>
     );

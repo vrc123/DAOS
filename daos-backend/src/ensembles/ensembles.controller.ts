@@ -70,6 +70,20 @@ export class EnsemblesController {
         })
     }
 
+    // URL = /ensembles/admin/:adminId
+    @Get("admin/:adminId")
+    findByAdmin(@Param('adminId') adminId): Promise<Ensemble[]> {
+        return this.ensemblesService.findByAdmin(adminId).then((result) => {
+            if(!(result.length === 0)) {
+                return result;
+            } else {
+                throw new HttpException('Ensembles not found', HttpStatus.NOT_FOUND);
+            }
+        }).catch(() => {
+            throw new HttpException('Bad request', HttpStatus.BAD_REQUEST);
+        });
+    }
+
     // URL = /ensembles/:id/post
     @Post(':id/post')
     addPost(@Param('id') id, @Body() addPost: PostEnsembleDTO): Promise<Ensemble> {

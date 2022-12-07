@@ -13,7 +13,7 @@ export default function MusicianEnsemblesList({ensemble}) {
                 <LabelTag labelType="small" labelColor="grey" labelText={`${ensemble.city} • ${ensemble.activeMusicians}`} />
             </div>
             <Link to={`/ensembles/${ensemble._id}`}>
-                <ButtonTag buttonType="small" buttonColor="white" buttonText="Show ensemble" />
+                <ButtonTag buttonType="small" buttonColor="white" buttonText="Show more" />
             </Link>
         </div>
     );

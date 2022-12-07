@@ -6,7 +6,7 @@ export default function EnsembleFilter({ensembles}) {
     return (
         <div className={styles.ensembleFilterDefault}>
             <HTag hType="h1" hColor="blue" hText="Find Ensemble"/>
-            <PTag pType="normal" pColor="grey" pText={`${ensembles.length}  posts from ensembles found`} />
+            <PTag pType="normal" pColor="grey" pText={`${ensembles.length} ensembles with current posts found`} />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Error from "../components/others/Error";
 import MusicianFilter from "../components/page-components/find-musician/MusicianFilter";
 import Musicians from "../components/page-components/find-musician/Musicians";
 import useFetch from "../scripts/useFetch";
@@ -23,9 +24,9 @@ export default function FindMusician() {
 
     return ( 
         <div className='find-musician'>
-            {musicians && <MusicianFilter musicians={musicians} />}
             {isLoading && <div>Loading...</div>}
-            {error && <div>{error}</div>}
+            {error && <Error error={error} />}
+            {musicians && <MusicianFilter musicians={musicians} />}
             {musicians && <Musicians musicians={musicians} visibleMusicians={visibleMusicians} showMoreMusicians={showMoreMusicians} />}
         </div>
     );

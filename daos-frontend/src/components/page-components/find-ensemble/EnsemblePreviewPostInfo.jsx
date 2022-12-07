@@ -9,7 +9,7 @@ export default function EnsemblePreviwPostInfo({post}) {
         <div className={styles.ensemblePreviwPostInfo}>
             <EnsemblePreviwPostInfoInstrument post={post} />
             <PTag pType="normal" pColor="grey" pText={post.title} />
-            <Link to="#">
+            <Link to={`/posts/${post._id}`}>
                 <ButtonTag buttonType="small" buttonColor="white"  buttonText="Show post" />
             </Link>
         </div>
