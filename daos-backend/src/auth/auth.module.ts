@@ -16,7 +16,7 @@ import { ProfilesController } from 'src/profiles/profiles.controller';
     JwtModule.register({
       // Key to sign payload / lock it
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '600s' },
+      signOptions: { expiresIn: '3000s' },
     }),
   ],
   controllers: [ProfilesController],

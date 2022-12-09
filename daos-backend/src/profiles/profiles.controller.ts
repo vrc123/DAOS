@@ -34,6 +34,7 @@ export class ProfilesController {
     }
 
     // URL = /profiles
+    //@UseGuards(JwtAuthGuard)
     @Get()
     findAll(): Promise<Profile[]> {
         return this.profilesService.findAll().then((result) => {
