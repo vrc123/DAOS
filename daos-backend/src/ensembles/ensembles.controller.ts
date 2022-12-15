@@ -70,8 +70,8 @@ export class EnsemblesController {
         })
     }
 
-    // URL = /ensembles/musician/:id
-    @Get("/musician/:id")
+    // URL = /ensembles/profiles/:id
+    @Get("/profiles/:id")
     findAllByAdmin(@Param('id') id): Promise<Ensemble[]> {
         return this.ensemblesService.findAllByAdmin(id).then((result) => {
             if(!(result.length === 0)) {

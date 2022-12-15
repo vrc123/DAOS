@@ -7,6 +7,7 @@ import SelectTag from "../atoms/SelectTag";
 import TextareaTag from "../atoms/TextareaTag";
 import Chips from "../others/Chips";
 import DisabledButton from "../others/DisabledButton";
+import Validation from "../others/Validation";
 import styles from "./EditEnsemblePostForm.module.css";
 import EnsemblePostFormValidation from "./EnsemblePostFormValidation";
 
@@ -19,6 +20,8 @@ export default function EditEnsemblePostForm() {
     const [selectedMinimumSkillLevel, setSelectedMinimumSkillLevel] = useState("");
     const [genres, setGenres] = useState(["Baroque", "Folk music", "Chamber music", "Romantic", "Late modern", "Late Romantic", "Symphonic"]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -78,6 +81,9 @@ export default function EditEnsemblePostForm() {
         const validationArray = EnsemblePostFormValidation(post);
 
         if(validationArray.length == 0) {
+
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/ensembles/" + id + "/post/" + postId, {
                 method: "PUT",
                 headers: {
@@ -102,7 +108,8 @@ export default function EditEnsemblePostForm() {
                 });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
 
@@ -120,6 +127,7 @@ export default function EditEnsemblePostForm() {
             <Chips selected={selectedGenres} setSelectedGenres={setSelectedGenres} />
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Save changes" />}
             {isLoading && <DisabledButton disabledButtonText="Saving changes" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

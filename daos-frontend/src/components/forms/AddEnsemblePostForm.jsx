@@ -8,6 +8,7 @@ import Chips from "../others/Chips";
 import styles from "./AddEnsemblePostForm.module.css";
 import DisabledButton from "../others/DisabledButton";
 import { useNavigate, useParams } from "react-router-dom";
+import Validation from "../others/Validation";
 
 export default function AddEnsemblePostForm() {
     const [title, setTitle] = useState("");
@@ -18,6 +19,8 @@ export default function AddEnsemblePostForm() {
     const [selectedMinimumSkillLevel, setSelectedMinimumSkillLevel] = useState("");
     const [genres, setGenres] = useState(["Baroque", "Folk music", "Chamber music", "Romantic", "Late modern", "Late Romantic", "Symphonic"]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -77,6 +80,9 @@ export default function AddEnsemblePostForm() {
         const validationArray = EnsemblePostFormValidation(post);
 
         if(validationArray.length == 0) {
+
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/ensembles/" + id + "/post", {
                 method: "POST",
                 headers: {
@@ -101,7 +107,8 @@ export default function AddEnsemblePostForm() {
                 });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
 
@@ -117,8 +124,9 @@ export default function AddEnsemblePostForm() {
             <LabelTag labelType="normal" labelColor="blue" labelText="Genres" />
             <SelectTag selectPlaceholder="Genres" selectOptions={genres} selectFunction={selectGenre} />
             <Chips selected={selectedGenres} setSelectedGenres={setSelectedGenres} />
-            <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Add post" />
-            <DisabledButton disabledButtonText="Adding post" />
+            {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Add post" />}
+            {isLoading && <DisabledButton disabledButtonText="Adding post" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

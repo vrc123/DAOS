@@ -10,6 +10,7 @@ import TextareaTag from "../atoms/TextareaTag";
 import Chips from "../others/Chips";
 import DisabledButton from "../others/DisabledButton";
 import TerritoryInputs from "../others/TerritoryInputs";
+import Validation from "../others/Validation";
 import styles from "./CreateEnsembleForm.module.css";
 import EnsembleFormValidation from "./EnsembleFormValidation";
 
@@ -28,6 +29,8 @@ export default function CreateEnsembleForm() {
     const [practiceFrequency, setPracticeFrequency] = useState("");
     const [genres, setGenres] = useState(["Baroque", "Folk music", "Chamber music", "Romantic", "Late modern", "Late Romantic", "Symphonic"]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -101,6 +104,9 @@ export default function CreateEnsembleForm() {
         const validationArray = EnsembleFormValidation(ensemble);
 
         if(validationArray.length == 0) {
+
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/ensembles", {
                 method: "POST",
                 headers: {
@@ -125,7 +131,8 @@ export default function CreateEnsembleForm() {
                 });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
 
@@ -156,6 +163,7 @@ export default function CreateEnsembleForm() {
             <Chips selected={selectedGenres} setSelectedGenres={setSelectedGenres} />
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Create ensemble" />}
             {isLoading && <DisabledButton disabledButtonText="Creating ensemble" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

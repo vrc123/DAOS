@@ -5,6 +5,7 @@ import LabelTag from "../atoms/LabelTag";
 import SelectTag from "../atoms/SelectTag";
 import Chips from "../others/Chips";
 import DisabledButton from "../others/DisabledButton";
+import Validation from "../others/Validation";
 import styles from "./EditInstrumentForm.module.css";
 import InstrumentFormValidation from "./InstrumentFormValidation";
 
@@ -16,6 +17,8 @@ export default function EditInstrumentForm() {
     const [selectedSkillLevel, setSelectedSkillLevel] = useState("");
     const [genres, setGenres] = useState(["Baroque", "Folk music", "Chamber music", "Romantic", "Late modern", "Late Romantic", "Symphonic"]);
     const [selectedGenres, setSelectedGenres] = useState([]);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -67,6 +70,9 @@ export default function EditInstrumentForm() {
         const validationArray = InstrumentFormValidation(instrument);
 
         if(validationArray.length == 0) {
+
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/profiles/" + profileId + "/instrument/" + id, {
                 method: "PUT",
                 headers: {
@@ -91,7 +97,8 @@ export default function EditInstrumentForm() {
                 });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
     
@@ -105,6 +112,7 @@ export default function EditInstrumentForm() {
             <Chips selected={selectedGenres} setSelectedGenres={setSelectedGenres} />
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Save changes" />}
             {isLoading && <DisabledButton disabledButtonText="Saving changes" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

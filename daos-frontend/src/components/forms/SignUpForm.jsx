@@ -9,6 +9,7 @@ import { useState } from "react";
 import DisabledButton from "../others/DisabledButton";
 import HideAndShowPassword from "../others/HideAndShowPassword";
 import SignUpFormValidation from "./SignUpFormValidation";
+import Validation from "../others/Validation";
 
 export default function SignUpForm({setLoggedIn}) {
 
@@ -19,6 +20,8 @@ export default function SignUpForm({setLoggedIn}) {
     const [conditions, setConditions] = useState(false);
     const [newsletter, setNewsletter] = useState(false);
     const [status, setStatus] = useState(false);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     
@@ -66,6 +69,9 @@ export default function SignUpForm({setLoggedIn}) {
         const validationArray = SignUpFormValidation(profile);
 
         if(validationArray.length == 0) {
+            
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/profiles/auth/sign-up", {
             method: "POST",
             headers: {
@@ -81,9 +87,9 @@ export default function SignUpForm({setLoggedIn}) {
             })
             .then((res) => {
                 if(res.statusCode == 500 || res.statusCode == 400) {
-                    validationArray.push("This e-mail is already in use")
                     setIsLoading(false);
-                    console.log(validationArray)
+                    setValidation(true);
+                    setValidations(["This e-mail is already in use"]);
                 } else {
                     localStorage.setItem("token", (res.access_token));
                     localStorage.setItem("profileId", (res.profileId));
@@ -98,7 +104,8 @@ export default function SignUpForm({setLoggedIn}) {
             });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
 
@@ -117,6 +124,7 @@ export default function SignUpForm({setLoggedIn}) {
             </div>
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Sign up" />}
             {isLoading && <DisabledButton isLoading={isLoading} disabledButtonText="Signing up"/>}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

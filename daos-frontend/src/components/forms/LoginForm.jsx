@@ -4,12 +4,15 @@ import ButtonTag from "../atoms/ButtonTag";
 import InputTagText from "../atoms/InputTagText";
 import DisabledButton from "../others/DisabledButton";
 import HideAndShowPassword from "../others/HideAndShowPassword";
+import Validation from "../others/Validation";
 import styles from "./LoginForm.module.css";
 
 export default function LoginForm({setLoggedIn}) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -27,6 +30,7 @@ export default function LoginForm({setLoggedIn}) {
         e.preventDefault();
 
         setIsLoading(true);
+        setValidation(false);
 
         const profile = {  
             email, 
@@ -53,7 +57,8 @@ export default function LoginForm({setLoggedIn}) {
                     setLoggedIn(true);
                     navigate("/welcome");
                 } else {
-                    console.log("Profile does not exist!")
+                    setValidation(true);
+                    setValidations(["Profile does not exist!"]);
                 }
             })
             .catch((error) => {
@@ -68,6 +73,7 @@ export default function LoginForm({setLoggedIn}) {
             <HideAndShowPassword inputPlaceholder="Password" password={password} passwordProp={passwordProp} />
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Login" />}
             {isLoading && <DisabledButton disabledButtonText="Logging in" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }

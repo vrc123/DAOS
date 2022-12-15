@@ -39,6 +39,7 @@ export class ProfilesService {
     }
 
     async updatePassword(id: string, profile: UpdatePasswordProfileDTO): Promise<Profile> {
+        
         let oldProfile = await this.profileModel.findById(id);
 
         const newProfile = new this.profileModel(profile); 

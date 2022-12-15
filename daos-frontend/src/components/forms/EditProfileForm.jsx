@@ -11,6 +11,7 @@ import DisabledButton from "../others/DisabledButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EditProfileFormValidation from "./EditProfileFormValidation";
+import Validation from "../others/Validation";
 
 export default function EditProfileForm() {
 
@@ -22,6 +23,8 @@ export default function EditProfileForm() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [status, setStatus] = useState(false);
+    const [validation, setValidation] = useState(false);
+    const [validations, setValidations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -80,6 +83,9 @@ export default function EditProfileForm() {
         const validationArray = EditProfileFormValidation(profile);
 
         if(validationArray.length == 0) {
+
+            setValidation(false);
+
             fetch("http://127.0.0.1:3000/profiles/" + profileId, {
                 method: "PUT",
                 headers: {
@@ -108,7 +114,8 @@ export default function EditProfileForm() {
                 });
         } else {
             setIsLoading(false);
-            console.log(validationArray);
+            setValidation(true);
+            setValidations(validationArray);
         }
     }
 
@@ -132,6 +139,7 @@ export default function EditProfileForm() {
             </div>
             {!isLoading && <ButtonTag buttonType="normal" buttonColor="blue" buttonText="Save changes" />}
             {isLoading && <DisabledButton disabledButtonText="Saving changes" />}
+            {validation && <Validation validations={validations} />}
         </form>
     );
 }
