@@ -37,6 +37,16 @@ export class EnsemblesService {
         return await this.ensembleModel.findByIdAndDelete(id);
     }
 
+    async deleteAllByAdmin ( adminId: string): Promise<any> {
+        const ensemble = await this.ensembleModel.find({ admin: adminId });
+        const deletionArray = []
+        ensemble.forEach((item) => {
+            deletionArray.push(item.id)
+        })
+
+        return await this.ensembleModel.deleteMany({_id: {$in: deletionArray} })
+    }
+
     async addPost(id: string, post: PostEnsembleDTO): Promise<Ensemble> {
         // Finds the specific ensemble's post array
         const ensemble = await this.ensembleModel.findById(id);

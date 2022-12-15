@@ -84,6 +84,20 @@ export class EnsemblesController {
         });
     }
 
+        // URL = /ensembles/admin/:adminId
+        @Delete("admin/:adminId")
+        DeleteByAdmin(@Param('adminId') adminId): Promise<any> {
+            return this.ensemblesService.deleteAllByAdmin(adminId).then((result) => {
+                if (result.deletedCount >= 1) {
+                    return result
+                } else {
+                    throw new HttpException('No ensembles with that ID', HttpStatus.NOT_FOUND)
+                }
+            }).catch(() => {
+                throw new HttpException('Bad request', HttpStatus.BAD_REQUEST)
+            })
+        }
+
     // URL = /ensembles/:id/post
     @Post(':id/post')
     addPost(@Param('id') id, @Body() addPost: PostEnsembleDTO): Promise<Ensemble> {
