@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ProfilesService } from 'src/profiles/profiles.service';
+//import { ProfilesService } from './../../src/profiles/profiles.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 
@@ -11,13 +12,30 @@ export class AuthService {
 ) {}
 
   async validateProfile(email: string, password: string): Promise<any> {
-    // Calling the findOne function from profileService - based on the Email form body
+    console.log(password)
     const profile = await this.profilesService.findOne(email);
+    console.log(profile)
     const validPassword = await bcrypt.compare(password, profile.password);
+    console.log(password)
       
     if (profile && validPassword === true) {
       console.log(" ValidateProfile - Auth Service - True",profile);
-    return profile; 
+    return profile;
+
+    // // Calling the findOne function from profileService - based on the Email form body
+    // console.log("auth - service - validateProfile", password)
+    // console.log("auth - service - validateProfile", email)
+    // const profile = await this.profilesService.findOne(email);
+    // console.log(profile)
+    // console.log(profile.email)
+    // if (profile === null){
+    //   throw new UnauthorizedException("validate throw - wrong email");
+    // }
+    // const validPassword = await bcrypt.compare(password, profile.password);
+      
+    // if (profile && validPassword === true) {
+    //   console.log("ValidateProfile - Auth Service - True",profile);
+    // return profile; 
 
         //TODO: Follow up on why this happens - and solve it by mongo Doc as Christian talked about
     // if this becomes an spread operator
@@ -29,6 +47,7 @@ export class AuthService {
     //   return result;
     // }
   }
+  throw new UnauthorizedException("Validate throw - Wrong password");
   return null;
 }
 

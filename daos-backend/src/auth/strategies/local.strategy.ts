@@ -16,10 +16,12 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     // Returns the profile found in the database
     const profile = await this.authService.validateProfile(email, password);
     console.log("local.strategy - Validate", profile);
+    console.log(password)
 
     if (!profile) {
       console.log("you do not have access to this");
-      throw new UnauthorizedException();
+      //throw new UnauthorizedException();
+      throw new UnauthorizedException('The password is incorrect');
     }
 
     console.log("you do have access");

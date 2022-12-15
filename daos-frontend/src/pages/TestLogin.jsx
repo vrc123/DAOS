@@ -15,8 +15,8 @@ const Create = () => {
             body: JSON.stringify(profile)
         }).then((response) => {
             if(!response.ok) {
-                throw Error("A 404 error happened " + response.status);
-            }
+               throw Error("Http error:" + response.status);
+            } 
             response.json().then((response) => {
                 // console.log(response.access_token)
                 // console.log(response.profileId)
@@ -29,12 +29,17 @@ const Create = () => {
                 //localStorage.setItem("token", JSON.stringify(response.access_token))
                 localStorage.setItem("token", (response.access_token))
                 localStorage.setItem("profileId", JSON.stringify(response.profileId))
-                console.log(localStorage.token)
+                if (!localStorage.getItem("token" === undefined)){
+                    console.log(localStorage.token, "virker som den skal")
+                }
+                console.log(localStorage.token, "virker ikke")
             })
             // return something;
         })
         .catch((err) => {
             console.log(err.message);
+            console.log(err)
+            console.log()
           });
       };
 

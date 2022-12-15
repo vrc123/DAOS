@@ -1,7 +1,12 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+
+// import { AuthService } from './../../src/auth/auth.service';
+// import { JwtAuthGuard } from './../../src/auth/guards/jwt-auth.guards';
+// import { LocalAuthGuard } from './../../src/auth/guards/local-auth.guard';
 import { AuthService } from 'src/auth/auth.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guards';
 import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
+
 import { CreateProfileDTO } from './dtos/create-profile.dto';
 import { InstrumentDTO } from './dtos/instrument-profile.dto';
 import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto';
@@ -21,6 +26,7 @@ export class ProfilesController {
     @UseGuards(LocalAuthGuard)
     @Post('auth/login')
     async login(@Request() req) {
+        console.log(req.user)
       return this.authService.login(req.user);
       // The request has to be a user request
       // if profile request it becomes undefined
@@ -34,7 +40,7 @@ export class ProfilesController {
     }
 
     // URL = /profiles
-    //@UseGuards(JwtAuthGuard)
+    @UseGuards(JwtAuthGuard)
     @Get()
     findAll(): Promise<Profile[]> {
         return this.profilesService.findAll().then((result) => {

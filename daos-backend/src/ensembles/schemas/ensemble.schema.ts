@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { Profile } from 'src/profiles/schemas/profile.schema';
+//import { Profile } from './../../../src/profiles/schemas/profile.schema';
 import * as mongoose from 'mongoose';
 
 export type EnsembleDocument = Ensemble & Document;

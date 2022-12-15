@@ -15,9 +15,57 @@ export class ProfilesService {
     // Dependency injection - profile model
     constructor(@InjectModel(Profile.name) private readonly profileModel: Model<ProfileDocument>) {}
 
+    // async findOne(email: string): Promise<Profile | undefined> {
+    //     return this.profileModel.findOne({ email: email });
+    // }
+
     async findOne(email: string): Promise<Profile | undefined> {
-        return this.profileModel.findOne({ email: email });
+        let foundProfile = this.profileModel.findOne({ email: email });
+        
+        return foundProfile;
+
+        // if (!foundProfile === null) {
+        //     return foundProfile
+        // }
+        // return null;
     }
+
+    // async findOne(email: string): Promise<Profile | undefined> {
+    //     try {
+    //         let data = await this.profileModel.findOne({email: email });
+    //         console.log(`findOne success--> ${data}`);
+    //         if(!data) {
+    //           throw new Error('no document found');
+    //           return null;
+    //         }
+    //         return data;
+    //     } catch (error) {
+    //         console.log(`findOne error--> ${error}`);
+    //         return error;
+    //     }
+    // }
+
+    // async findOne(email: string): Promise<Profile | undefined> {
+    //     console.log("går galt i find one")
+    //     let foundProfile = this.profileModel.findOne({ email: email });
+    //     console.log(foundProfile.exists)
+    //     if (!foundProfile){
+    //         console.log("fandt ikke noget")
+    //     }
+    //     else {
+    //         return foundProfile;
+    //     }
+    // }
+
+    // async findOne(email: string): Promise<any | undefined> {
+    //     this.profileModel.findOne({email: email}, (err, result) => {
+    //         console.log(email)
+    //         if (err) throw err;
+    //         console.log(err)
+    //         console.log(result);
+    //         return result;
+    //     });
+    // }
 
     async findAll(): Promise<Profile[]> {
         return await this.profileModel.find({});
@@ -93,5 +141,9 @@ export class ProfilesService {
 
         // Saves the new instrumentArray
         return await profile.save();
+    }
+
+    deleteMany(deleteCriteria: any) {
+        return this.profileModel.deleteMany(deleteCriteria);
     }
 }
