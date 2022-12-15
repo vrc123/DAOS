@@ -1,0 +1,21 @@
+.addEnsemblePostFormDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.addEnsemblePostFormDefault input {
+    margin-bottom: 15px;
+}
+
+.addEnsemblePostFormDefault label {
+    margin: 15px 0;
+}
+
+.addEnsemblePostFormDefault select {
+    margin-bottom: 15px;
+}
+
+.addEnsemblePostFormDefault button {
+    width: 100% !important;
+    margin-top: 15px;
+}

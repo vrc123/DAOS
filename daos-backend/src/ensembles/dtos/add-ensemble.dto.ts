@@ -2,7 +2,7 @@ import { IsAlpha, IsNumberString, MinLength } from "class-validator";
 
 export class AddEnsembleDTO {
     
-    @IsAlpha()
+    @MinLength(1)
     readonly name: string;
 
     readonly description: string;

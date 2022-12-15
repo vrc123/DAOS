@@ -7,12 +7,17 @@ import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto
 import { UpdatePasswordProfileDTO } from './dtos/update-password-profile.dto';
 import { UpdateProfileDTO } from './dtos/update-profile.dto';
 import { Profile, ProfileDocument } from './schemas/profile.schema';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class ProfilesService {
     // Dependency injection = imports data for use
     // Dependency injection - profile model
     constructor(@InjectModel(Profile.name) private readonly profileModel: Model<ProfileDocument>) {}
+
+    async findOne(email: string): Promise<Profile> {
+        return await this.profileModel.findOne({ email: email });
+    }
 
     async findAll(): Promise<Profile[]> {
         return await this.profileModel.find({ status: true });
@@ -24,6 +29,8 @@ export class ProfilesService {
 
     async create(profile: CreateProfileDTO): Promise<Profile> {
         const newProfile = new this.profileModel(profile);
+        const hash = await bcrypt.hash(newProfile.password, 10);
+        newProfile.password = hash;
         return await newProfile.save();
     }
 
@@ -32,7 +39,16 @@ export class ProfilesService {
     }
 
     async updatePassword(id: string, profile: UpdatePasswordProfileDTO): Promise<Profile> {
-        return await this.profileModel.findByIdAndUpdate(id, profile);
+        let oldProfile = await this.profileModel.findById(id);
+
+        const newProfile = new this.profileModel(profile); 
+
+        const hash = await bcrypt.hash(newProfile.password, 10);
+        newProfile.password = hash;
+
+        oldProfile.password = newProfile.password;
+
+        return await oldProfile.save();
     }
     
     async updateNewsletter(id: string, profile: UpdateNewsletterProfileDTO): Promise<Profile> {

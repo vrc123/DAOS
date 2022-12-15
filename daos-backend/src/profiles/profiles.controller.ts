@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { Request, Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { CreateProfileDTO } from './dtos/create-profile.dto';
 import { InstrumentDTO } from './dtos/instrument-profile.dto';
 import { UpdateNewsletterProfileDTO } from './dtos/update-newsletter-profile.dto';
@@ -6,12 +6,33 @@ import { UpdatePasswordProfileDTO } from './dtos/update-password-profile.dto';
 import { UpdateProfileDTO } from './dtos/update-profile.dto';
 import { ProfilesService } from './profiles.service';
 import { Profile } from './schemas/profile.schema';
+import { AuthService } from 'src/auth/auth.service';
+import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 
 @Controller('profiles')
 export class ProfilesController {
     // Dependency injection = imports data for use
-    // Dependency injection - profiles service
-    constructor(private readonly profilesService: ProfilesService) {}
+    // Dependency injection - profiles service and auth service
+    constructor(
+        private readonly profilesService: ProfilesService,
+        private readonly authService: AuthService,
+    ) {}
+
+    // URL = /profiles/auth/login
+    // Recives a login request from the frontend
+    // The endpoint is "guarded" by the LocalAuthGuard
+    @UseGuards(LocalAuthGuard)
+    @Post('auth/login')
+    login(@Request() req) {
+        return this.authService.login(req.user);
+    }
+
+    // URL = /profiles/auth/sign-up
+    @Post('auth/sign-up')
+    async create(@Body() createProfile: CreateProfileDTO): Promise<any> {
+        const profile = await this.profilesService.create(createProfile);
+        return this.authService.login(profile);
+    }
 
     // URL = /profiles
     @Get()
@@ -25,11 +46,6 @@ export class ProfilesController {
         }).catch(() => {
             throw new HttpException('Bad request', HttpStatus.BAD_REQUEST);
         });
-    }
-
-    @Post()
-    create(@Body() createProfile: CreateProfileDTO): Promise<Profile> {
-        return this.profilesService.create(createProfile);
     }
 
     // URL = /profiles/:id

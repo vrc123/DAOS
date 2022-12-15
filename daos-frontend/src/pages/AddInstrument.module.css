@@ -1,0 +1,39 @@
+.addInstrumentDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.addInstrumentDefault div {
+    width: 398px;
+}
+
+.addInstrumentDefault button {
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+
+.addInstrumentDefault div h1 {
+    margin-bottom: 30px;
+}
+
+.addInstrumentDefault div a {
+    color: #777777;
+}
+
+@media screen and (max-width: 428px) {   
+    .addInstrumentDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .addInstrumentDefault div {
+        width: 100%;
+    }
+    
+    .addInstrumentDefault div h1 {
+        margin-bottom: 45px;
+    }
+}

@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonTag from "../atoms/ButtonTag";
 import LabelTag from "../atoms/LabelTag";
 import styles from "./HeaderNavigation.module.css";
 
-export default function HeaderNavigation() {
+export default function HeaderNavigation({loggedIn, setLoggedIn}) {
+
+    const navigate = useNavigate();
+
+    function logout() {
+        localStorage.clear();
+        setLoggedIn(false);
+        navigate("/");
+    }
+
     return (
         <div className={styles.headerNavigationDefault}>
             <nav>
@@ -20,12 +29,13 @@ export default function HeaderNavigation() {
                     <LabelTag labelType="normal" labelColor="blue" labelText="Profile" />
                 </Link>
             </nav>
-            <Link to="/sign-up">
+            {!loggedIn && <Link to="/sign-up">
                 <ButtonTag buttonType="normal" buttonColor="blue" buttonPosition="left" buttonText="Sign up" />
-            </Link>
-            <Link to="/login">
+            </Link>}
+            {!loggedIn && <Link to="/login">
                 <ButtonTag buttonType="normal" buttonColor="white" buttonPosition="right" buttonText="Login" />
-            </Link>
+            </Link>}
+            {loggedIn && <ButtonTag buttonType="normal" buttonColor="white" buttonText="Logout" buttonFunction={logout} />}
         </div>
     );
 }

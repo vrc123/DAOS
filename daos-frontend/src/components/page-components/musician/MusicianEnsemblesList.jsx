@@ -4,15 +4,15 @@ import LabelTag from "../../atoms/LabelTag";
 import ButtonTag from "../../atoms/ButtonTag";
 import styles from "./MusicianEnsemblesList.module.css";
 
-export default function MusicianEnsemblesList({ensemble}) {
+export default function MusicianEnsemblesList({musicianEnsemble}) {
 
     return ( 
         <div className={styles.musicianEnsemblesListDefault}>
             <div>
-                <HTag hType="h3" hColor="red" hText={ensemble.name} />
-                <LabelTag labelType="small" labelColor="grey" labelText={`${ensemble.city} • ${ensemble.activeMusicians}`} />
+                <HTag hType="h3" hColor="red" hText={musicianEnsemble.name} />
+                <LabelTag labelType="small" labelColor="grey" labelText={`${musicianEnsemble.city} • ${musicianEnsemble.activeMusicians}`} />
             </div>
-            <Link to={`/ensembles/${ensemble._id}`}>
+            <Link to={`/ensembles/${musicianEnsemble._id}`}>
                 <ButtonTag buttonType="small" buttonColor="white" buttonText="Show more" />
             </Link>
         </div>

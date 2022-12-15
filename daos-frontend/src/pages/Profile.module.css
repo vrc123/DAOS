@@ -1,0 +1,4 @@
+.profileDefault {
+    display: flex;
+    flex-direction: column;
+}

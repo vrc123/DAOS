@@ -12,16 +12,12 @@ export class EnsemblesService {
     // Dependency injection - ensemble model 
     constructor(@InjectModel(Ensemble.name) private readonly ensembleModel: Model<EnsembleDocument>) {}
 
-    async findAll(): Promise<Ensemble[]> {
+    async findAllByStatus(): Promise<Ensemble[]> {
         return await this.ensembleModel.find({ posts: {$exists : true, $ne : []} }).populate('admin');
     }
 
     async findSpecific(id: string): Promise<Ensemble> {
         return await this.ensembleModel.findOne({ _id: id }).populate('admin');
-    }
-
-    async findByAdmin (adminId: string): Promise<Ensemble[]> {
-        return await this.ensembleModel.find({ admin: adminId }).populate('admin');
     }
     
     async create(ensemble: AddEnsembleDTO): Promise<Ensemble> {
@@ -35,6 +31,10 @@ export class EnsemblesService {
 
     async delete(id: string): Promise<Ensemble> {
         return await this.ensembleModel.findByIdAndDelete(id);
+    }
+
+    async findAllByAdmin(id: string): Promise<Ensemble[]> {
+        return await this.ensembleModel.find({ admin: id }).populate('admin');
     }
 
     async addPost(id: string, post: PostEnsembleDTO): Promise<Ensemble> {

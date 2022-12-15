@@ -7,21 +7,21 @@ export default function useFetch(url) {
 
     useEffect(() => {
         fetch(url)
-            .then((res) => {
-                if(!res.ok) {
-                    throw Error('Could not fetch the data')
-                }
-                return res.json();
-            })
-            .then((data) => {
-                setData(data);
-                setIsLoading(false);
-                setError(null)
-            })
-            .catch((err) => {
-                setIsLoading(false);
-                setError(err.message);
-            });
+        .then((res) => {
+            if (!res.status === 200) {
+                throw new Error("Could not fetch the data!")
+            }
+            return res.json();
+        })
+        .then((data) => {
+            setData(data);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            setError(error.message);
+            setIsLoading(false);
+        });
+
     }, [url]);
 
     return { data, isLoading, error }

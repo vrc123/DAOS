@@ -1,0 +1,39 @@
+.editEnsemblePostDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.editEnsemblePostDefault div {
+    width: 398px;
+}
+
+.editEnsemblePostDefault button {
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+
+.editEnsemblePostDefault div h1 {
+    margin-bottom: 30px;
+}
+
+.editEnsemblePostDefault div a {
+    color: #777777;
+}
+
+@media screen and (max-width: 428px) {   
+    .editEnsemblePostDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .editEnsemblePostDefault div {
+        width: 100%;
+    }
+    
+    .editEnsemblePostDefault div h1 {
+        margin-bottom: 45px;
+    }
+}

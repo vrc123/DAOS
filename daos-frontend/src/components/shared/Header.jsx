@@ -6,7 +6,7 @@ import HeaderNavigation from "../others/HeaderNavigation";
 import ToggleHeaderNavigation from "../others/ToggleHeaderNavigation";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({loggedIn, setLoggedIn}) {
 
     const [changeLogo, setChangeLogo] = useState(true);
     const [showHeaderNavigation, setShowHeaderNavigation] = useState(true);
@@ -40,10 +40,10 @@ export default function Header() {
                     {changeLogo && <PTag pType="small" pColor="grey" pText="Created by DAOS - Danish Amateur Orchestra Samvirke" />}
                     {!changeLogo && <PTag pType="small" pColor="grey" pText="Created by DAOS" />}
                 </Link>
-                {showHeaderNavigation && <HeaderNavigation />}
+                {showHeaderNavigation && <HeaderNavigation loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
                 {!showHeaderNavigation && <ToggleHeaderNavigation changeToggle={changeToggle} show={show} hide={hide} />}
             </div>
-            {!changeToggle && <HeaderNavigation />}
+            {!changeToggle && <HeaderNavigation loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
         </header>
     );
 }

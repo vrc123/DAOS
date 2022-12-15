@@ -1,7 +1,12 @@
 .ensemblePreviewInfoDefault {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px;
     border-radius: 10px 10px 0 0;
     background-color: #F9F9F9;
+}
+
+.ensemblePreviewInfoDefault button {
+    width: fit-content !important;
 }

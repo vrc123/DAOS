@@ -1,15 +1,10 @@
+import ButtonTag from "../../atoms/ButtonTag";
 import HTag from "../../atoms/HTag";
 import LabelTag from "../../atoms/LabelTag";
 import styles from "./MusicianInfo.module.css";
 import MusicianInfoContactButtons from "./MusicianInfoContactButtons";
 
-export default function MusicianInfo({ensembles}) {
-
-    let musician;
-
-    ensembles.forEach(ensemble => {
-        musician = ensemble.admin;
-    })
+export default function MusicianInfo({musician}) {
 
     if (musician.status === true) {
         musician.status = "Looking";

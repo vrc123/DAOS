@@ -1,13 +1,13 @@
 import styles from "./MusicianEnsemblesComponent.module.css";
 import MusicianEnsemblesList from "./MusicianEnsemblesList";
 
-export default function MusicianEnsemblesComponent({ensembles}) {
+export default function MusicianEnsemblesComponent({musicianEnsembles}) {
 
     return ( 
         <div className={styles.musicianEnsemblesComponentDefault}>
-            {ensembles.map((ensemble, index) => {
+            {musicianEnsembles.map((musicianEnsemble, index) => {
                 return (
-                    <MusicianEnsemblesList key={index} ensemble={ensemble} />
+                    <MusicianEnsemblesList key={index} musicianEnsemble={musicianEnsemble} />
                 );
             })}
         </div>

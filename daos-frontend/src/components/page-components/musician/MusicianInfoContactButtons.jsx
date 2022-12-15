@@ -6,12 +6,13 @@ export default function MusicianInfoContactButtons({musician}) {
 
     return ( 
         <div className={styles.musicianInfoContactButtonsDefault}>
-            <Link to="#">
-                <ButtonTag buttonType="normal" buttonColor="white" buttonPosition="left" buttonText={musician.phone} />
-            </Link>
-            <Link to="#">    
-                <ButtonTag buttonType="normal" buttonColor="white" buttonPosition="right" buttonText={musician.email} />
-            </Link>
+            {musician.phone && <Link to="#">
+                <ButtonTag buttonType="normal" buttonColor="white" buttonText={musician.phone} />
+            </Link>}
+            {musician.email && <div></div>}
+            {musician.email && <Link to="#">    
+                <ButtonTag buttonType="normal" buttonColor="white" buttonText={musician.email} />
+            </Link>}
         </div>
     );
 }

@@ -10,7 +10,7 @@
 }
 
 .signUpDefault div h1 {
-    margin-bottom: 30px;
+    margin-bottom: 15px !important;
 }
 
 @media screen and (max-width: 428px) {   

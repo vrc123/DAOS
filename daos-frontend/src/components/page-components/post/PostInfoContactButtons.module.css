@@ -1,0 +1,19 @@
+.postInfoContactButtonsDefault {
+    display: flex;
+}
+
+.postInfoContactButtonsDefault div {
+    width: 20px;
+    height: 10px;
+    margin: 0;
+}
+
+@media screen and (max-width: 428px) {
+    .postInfoContactButtonsDefault {
+        margin-bottom: 0 !important;
+    }
+
+    .postInfoContactButtonsDefault button {
+        width: 100%;
+    }
+}

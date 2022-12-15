@@ -19,13 +19,16 @@ export class CreateProfileDTO {
   
     readonly newsletter: boolean;
 
-    constructor(firstName: string, lastName: string, email: string, password: string, conditions: boolean, newsletter: boolean) {
+    readonly status: boolean;
+
+    constructor(firstName: string, lastName: string, email: string, password: string, conditions: boolean, newsletter: boolean, status: boolean) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.conditions = conditions;
         this.newsletter = newsletter;
+        this.status = status;
     }
     
 }

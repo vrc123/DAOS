@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ButtonTag from "../components/atoms/ButtonTag";
 import HTag from "../components/atoms/HTag";
-import ChangePasswordForm from "../components/forms/ChangePasswordForm";
+import ProfileChangePasswordForm from "../components/forms/ProfileChangePasswordForm";
 import styles from "./ProfileChangePassword.module.css";
 
 export default function ProfileChangePassword() {
@@ -12,7 +12,7 @@ export default function ProfileChangePassword() {
                     <ButtonTag buttonType="small" buttonColor="white" buttonText="Back" />
                 </Link>
                 <HTag hType="h1" hColor="blue" hText="Change password" />
-                <ChangePasswordForm />
+                <ProfileChangePasswordForm />
             </div>
         </div>
     );

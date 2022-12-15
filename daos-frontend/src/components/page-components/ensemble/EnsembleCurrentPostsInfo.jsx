@@ -6,7 +6,7 @@ export default function EnsembleCurrentPostsInfo({ensemble}) {
         <div className={styles.ensembleCurrentPostsInfo}>
             {ensemble.posts.map((post, index) => {
                 return (
-                    <EnsembleCurrentPostInfo key={index} post={post} />
+                    <EnsembleCurrentPostInfo key={index} ensemble={ensemble} post={post} />
                 );
             })}
         </div>

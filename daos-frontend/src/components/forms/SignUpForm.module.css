@@ -7,6 +7,10 @@
     margin-bottom: 15px;
 }
 
+.signUpFormDefault input[type=checkbox] {
+    margin-bottom: 0;
+}
+
 .signUpFormDefault div {
     display: flex;
     flex-wrap: wrap;

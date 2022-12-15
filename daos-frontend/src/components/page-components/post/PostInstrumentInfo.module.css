@@ -1,0 +1,16 @@
+.postInstrumentInfoDefault {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -5px;
+    margin-top: 15px;
+}
+
+.postInstrumentInfoDefault div {
+    display: flex;
+    align-items: center;
+}
+
+.postInstrumentInfoDefault label {
+    margin-bottom: 0 !important;
+}

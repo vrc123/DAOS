@@ -13,8 +13,8 @@ export class EnsemblesController {
 
     // URL = /ensembles
     @Get()
-    findAll(): Promise<Ensemble[]> {
-        return this.ensemblesService.findAll().then((result) => {
+    findAllByStatus(): Promise<Ensemble[]> {
+        return this.ensemblesService.findAllByStatus().then((result) => {
             if(!(result.length === 0)) {
                 return result;
             } else {
@@ -70,10 +70,10 @@ export class EnsemblesController {
         })
     }
 
-    // URL = /ensembles/admin/:adminId
-    @Get("admin/:adminId")
-    findByAdmin(@Param('adminId') adminId): Promise<Ensemble[]> {
-        return this.ensemblesService.findByAdmin(adminId).then((result) => {
+    // URL = /ensembles/musician/:id
+    @Get("/musician/:id")
+    findAllByAdmin(@Param('id') id): Promise<Ensemble[]> {
+        return this.ensemblesService.findAllByAdmin(id).then((result) => {
             if(!(result.length === 0)) {
                 return result;
             } else {

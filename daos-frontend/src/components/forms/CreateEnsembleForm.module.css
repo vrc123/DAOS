@@ -1,0 +1,35 @@
+.createEnsembleFormDefault {
+    display: flex;
+    flex-direction: column;
+}
+
+.createEnsembleFormDefault label {
+    margin: 15px 0;
+}
+
+.createEnsembleFormDefault input {
+    margin-bottom: 15px;
+}
+
+.createEnsembleFormDefault textarea {
+    margin-bottom: 15px;
+}
+
+.createEnsembleFormDefault select {
+    margin-bottom: 15px;
+}
+
+.createEnsembleFormDefault button {
+    width: 100% !important;
+    margin-top: 15px;
+}
+
+.createEnsembleFormDefault div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.createEnsembleFormDefault div p {
+    margin-left: 15px;
+}

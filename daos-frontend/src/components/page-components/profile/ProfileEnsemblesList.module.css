@@ -1,0 +1,6 @@
+.profileEnsemblesListDefault {
+    display: flex;
+    flex-direction: column;
+    align-items: unset !important;
+    justify-content: unset;
+}

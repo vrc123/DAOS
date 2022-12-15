@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import Error from "../components/others/Error";
+import Loading from "../components/others/Loading";
 import EnsembleInfo from "../components/page-components/ensemble/EnsembleInfo";
 import EnsemblePropsList from "../components/page-components/ensemble/EnsemblePropsList";
 import useFetch from "../scripts/useFetch";
@@ -13,7 +14,7 @@ export default function Ensemble() {
 
     return ( 
         <div className={styles.ensembleDefault}>
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <Loading />}
             {error && <Error error={error} />}
             {ensemble && <EnsembleInfo ensemble={ensemble} />}
             {ensemble && <EnsemblePropsList ensemble={ensemble} admin={ensemble.admin} />}

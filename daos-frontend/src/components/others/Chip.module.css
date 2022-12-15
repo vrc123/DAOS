@@ -1,0 +1,19 @@
+.chipDefault {
+    width: fit-content !important;
+    margin: 0 15px 15px 0 !important;
+    padding: 6px 15px;
+    border-radius: 4px;
+    background-color: #353A5D;
+}
+
+
+.chipDefault:hover {
+    cursor: pointer;
+    background-color: #4A4E6E;
+}
+
+.chipDefault label {
+    margin: 0 !important;
+    cursor: pointer;
+    margin-right: 10px !important;
+}

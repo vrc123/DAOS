@@ -1,0 +1,14 @@
+.postEnsembleInfoDefault {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0 !important;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #DDDDDD;
+    background-color: #F9F9F9;
+}
+
+.postEnsembleInfoDefault div {
+    margin: 0;
+}

@@ -11,6 +11,10 @@
     margin-bottom: 15px;
 }
 
+.editProfileFormDefault textarea {
+    margin-bottom: 15px;
+}
+
 .editProfileFormDefault button {
     width: 100% !important;
     margin-top: 15px;

@@ -27,6 +27,11 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .headerNavigationDefault button {
+        width: 100%;
     }
 
     .headerNavigationDefault nav a {

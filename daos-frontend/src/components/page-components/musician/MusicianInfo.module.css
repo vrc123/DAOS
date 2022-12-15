@@ -10,7 +10,6 @@
     margin-bottom: 20px;
 }
 
-
 @media screen and (max-width: 428px) {   
     .musicianInfoDefault {
         flex-direction: column;

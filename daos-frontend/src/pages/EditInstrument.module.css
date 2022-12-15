@@ -1,0 +1,39 @@
+.editInstrumentDefault {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0;
+    background-color: #F9F9F9;
+}
+
+.editInstrumentDefault div {
+    width: 398px;
+}
+
+.editInstrumentDefault button {
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+
+.editInstrumentDefault div h1 {
+    margin-bottom: 30px;
+}
+
+.editInstrumentDefault div a {
+    color: #777777;
+}
+
+@media screen and (max-width: 428px) {   
+    .editInstrumentDefault {
+        padding: 60px 15px;
+        background-color: #F9F9F9;
+    }
+    
+    .editInstrumentDefault div {
+        width: 100%;
+    }
+    
+    .editInstrumentDefault div h1 {
+        margin-bottom: 45px;
+    }
+}
